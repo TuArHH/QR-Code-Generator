@@ -39,7 +39,7 @@ A simple QR code generator with a graphical user interface, built using Python a
 
 Here’s how the main window of the program looks:
 
-![QR Code Generator GUI](screenshot.png)
+![QR Code Generator GUI](Screenshot 2024-08-31 111813.png)
 
 - **Link Name**: The name or title of the link that the QR code will represent.
 - **Link URL**: The actual URL that the QR code encodes.
