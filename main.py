@@ -1,5 +1,6 @@
 from tkinter import *
 from datetime import datetime
+import qrcode
 from PIL import ImageTk, Image
 
 root = Tk()
@@ -10,7 +11,7 @@ current_year = now.year
 
 
 # change the default tk logo to my own
-icon = Image.open("favicon.ico")  # replace here your own image
+icon = Image.open("favicon/favicon.ico")  # replace here your own image
 icon = ImageTk.PhotoImage(icon)
 root.iconphoto(False, icon)
 
@@ -34,7 +35,7 @@ def generate_qrcode():
 
     # Create an image from the QR code instance
     img = qr.make_image(fill_color="black", back_color="white")
-    img.save(file_name)
+    img.save("img/" + file_name)
 
     # Display the QR code image
     image = ImageTk.PhotoImage(Image.open(file_name))
@@ -46,7 +47,7 @@ def generate_qrcode():
 canvas = Canvas(root, width=400, height=600)
 canvas.pack()
 
-app_label = Label(root, text="QR Code Generator", fg="blue", font=("Arial", 30))
+app_label = Label(root, text="QR Code Generator", fg="green", font=("Arial", 30))
 canvas.create_window(200, 50, window=app_label)
 
 name_label = Label(root, text="Link name")
