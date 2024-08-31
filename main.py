@@ -61,3 +61,11 @@ canvas.create_window(200, 180, window=link_entry)
 
 button = Button(text="Generate QR code", command=generate_qrcode)
 canvas.create_window(200, 230, window=button)
+
+# Footer
+footer_label = Label(
+    root, text=f"Created by {chr(64)}Tugrul Arslan\t{current_year}", font=("Arial", 10)
+)
+footer_label.pack(side=BOTTOM, pady=10)
+
+root.mainloop()
