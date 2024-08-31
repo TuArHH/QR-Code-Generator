@@ -17,6 +17,32 @@ root.iconphoto(False, icon)
 root.title("QR Code Generator")
 
 
+def generate_qrcode():
+    link_name = name_entry.get()
+    link = link_entry.get()
+    file_name = link_name + ".png"
+
+    # Generate QR code
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(link)
+    qr.make(fit=True)
+
+    # Create an image from the QR code instance
+    img = qr.make_image(fill_color="black", back_color="white")
+    img.save(file_name)
+
+    # Display the QR code image
+    image = ImageTk.PhotoImage(Image.open(file_name))
+    image_label = Label(image=image)
+    image_label.image = image
+    canvas.create_window(200, 450, window=image_label)
+
+
 canvas = Canvas(root, width=400, height=600)
 canvas.pack()
 
