@@ -2,6 +2,7 @@ from tkinter import *
 from datetime import datetime
 import qrcode
 from PIL import ImageTk, Image
+import os
 
 root = Tk()
 
@@ -9,9 +10,8 @@ root = Tk()
 now = datetime.now()
 current_year = now.year
 
-
-# change the default tk logo to my own
-icon = Image.open("favicon/favicon.ico")  # replace here your own image
+# change the default tk logo to a custom icon
+icon = Image.open("favicon/favicon.ico")  # Ensure this path is correct
 icon = ImageTk.PhotoImage(icon)
 root.iconphoto(False, icon)
 
@@ -35,12 +35,18 @@ def generate_qrcode():
 
     # Create an image from the QR code instance
     img = qr.make_image(fill_color="black", back_color="white")
-    img.save("img/" + file_name)
+
+    # Ensure the directory exists
+    if not os.path.exists("img"):
+        os.makedirs("img")
+
+    img_path = os.path.join("img", file_name)
+    img.save(img_path)
 
     # Display the QR code image
-    image = ImageTk.PhotoImage(Image.open(file_name))
-    image_label = Label(image=image)
-    image_label.image = image
+    image = ImageTk.PhotoImage(Image.open(img_path))
+    image_label = Label(root, image=image)
+    image_label.image = image  # Keep a reference to avoid garbage collection
     canvas.create_window(200, 450, window=image_label)
 
 
@@ -65,7 +71,7 @@ canvas.create_window(200, 230, window=button)
 
 # Footer
 footer_label = Label(
-    root, text=f"Created by {chr(64)}Tugrul Arslan\t{current_year}", font=("Arial", 10)
+    root, text=f"Created by @Tugrul Arslan\t{current_year}", font=("Arial", 10)
 )
 footer_label.pack(side=BOTTOM, pady=10)
 
