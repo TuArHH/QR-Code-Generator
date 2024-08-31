@@ -6,7 +6,6 @@ A simple QR code generator with a graphical user interface, built using Python a
 - [Installation](#installation)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -53,15 +52,6 @@ This project uses the following Python libraries:
 
 Ensure that these packages are installed by using the `requirements.txt` file.
 
-## Contributing
-
-Contributions are welcome! If you want to add new features or fix bugs, follow these steps:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/new-feature`)
-3. Make your changes and commit them (`git commit -am 'Add new feature'`)
-4. Push the branch (`git push origin feature/new-feature`)
-5. Create a Pull Request
 
 ## License
 
@@ -69,4 +59,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Created by [Your Name] - feel free to reach out if you have any questions or suggestions at [your.email@example.com](mailto:your.email@example.com).
+Created by [Tugrul Arslan] - feel free to reach out if you have any questions or suggestions at [your.email@example.com](mailto:tugrul@business-arslan.com).
